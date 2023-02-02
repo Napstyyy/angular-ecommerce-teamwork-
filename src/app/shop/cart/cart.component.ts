@@ -32,7 +32,7 @@ export class CartComponent implements OnInit {
     .subscribe((data) => this.products = data);
   }
 
-  products: Product = [];
+  products: Product[] = [];
 
   displayedColumns: string[] = ['image', 'name', 'quantity', 'price', 'actions'];
   dataSource = TEST_PRODUCTS;

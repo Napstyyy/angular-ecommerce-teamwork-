@@ -1,0 +1,5 @@
+.cards-container{ /*Displays the cards in a rows, wrapping if needed*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

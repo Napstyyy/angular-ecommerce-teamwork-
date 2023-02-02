@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ShopModule } from './shop/shop.module';
+import { ShopCardsModule } from './shop-cards/shop-cards.module';
+
 
 @NgModule({
   declarations: [
@@ -15,8 +17,9 @@ import { ShopModule } from './shop/shop.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ShopModule
- 
+    ShopModule,
+    ShopCardsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

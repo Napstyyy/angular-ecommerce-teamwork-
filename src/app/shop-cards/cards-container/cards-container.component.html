@@ -1,0 +1,5 @@
+<div  class="cards-container">
+    <div *ngFor="let card of products;let i=index">
+        <app-product-card [product]="card" [index]="i" ></app-product-card>
+    </div>
+</div>

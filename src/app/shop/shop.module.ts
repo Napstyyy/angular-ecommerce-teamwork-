@@ -12,9 +12,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 
 
+
 @NgModule({
   declarations: [
-    CartComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,
