@@ -1,23 +1,37 @@
 .example-card {
-    max-width: 300px;
-    border: 1px solid rgb(209, 209, 209);
-    box-shadow: 1px;
-    margin: 10px;
-    transition: 0.2s;
-    min-height: 400px;
-  }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
-
-.example-card:hover{
-    box-shadow: 0px 20px 30px -2px rgba(0, 0, 0, 0.156);
-    transition: 0.2s;
+  width: 300px;
+  border: 1px solid rgb(209, 209, 209);
+  box-shadow: 1px;
+  margin: 10px;
+  transition: 0.2s;
+  height: 400px;
 }
 
-.description-card{
-    padding-left: 20px;
-    padding-right: 20px;
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.image-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  padding: 5px;
+}
+
+.image-container img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.example-card:hover {
+  box-shadow: 0px 20px 30px -2px rgba(0, 0, 0, 0.156);
+  transition: 0.2s;
+}
+
+.description-card {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }

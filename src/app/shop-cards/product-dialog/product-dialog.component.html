@@ -1,0 +1,17 @@
+<div class="dialog-container">
+    <div class="image-container">
+        <div class="dialog-big-image-container">
+            <img src={{data.images[selectedImage]}} class="dialog-big-image">
+        </div>
+        <div class="images-row">
+            <mat-grid-list cols="2" rowHeight="1:1" *ngFor="let image of data.images; let i=index">
+                <img src={{image}} alt="" class="dialog-image-row" (click)="selectImage(i)">
+            </mat-grid-list>
+        </div>
+    </div>
+    <div class="dialog-product-container">
+        <h1 mat-dialog-title>{{data.name}}</h1>
+        <h1 mat-dialog-content>{{data.price}}</h1>
+        <p>{{data.details}}</p>
+    </div>
+</div>

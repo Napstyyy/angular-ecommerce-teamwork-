@@ -12,10 +12,11 @@ export class CardsContainerComponent implements OnInit{
 
   
   ngOnInit(){
-    this.productsService.getProducts()
-    .subscribe((data) => this.products = data);
+    this.productsService.getProducts().subscribe((data) => this.products = data);
+    this.productsService.getImages().subscribe((data) => this.images = data);
   }
   
   products:Product[] = []
+  images:[] = []
 
 }
