@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ShopModule } from './shop/shop.module';
 import { ShopCardsModule } from './shop-cards/shop-cards.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginModule } from './login/login.module';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    LoginModule,
     ShopModule,
     ShopCardsModule,
     BrowserAnimationsModule

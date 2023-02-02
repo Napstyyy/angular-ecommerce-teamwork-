@@ -20,8 +20,8 @@ export class ProductCardComponent {
   openDialog = () => {
     this.dialog.open(ProductDialogComponent, {
       data: {name: this.product.name, details: this.product.details, price: this.getPriceText(), images: this.images},
-      width: '80%',
-      height: '50%',
+      width: '60%',
+      height: '40%',
       minWidth: '200px'
     });
 

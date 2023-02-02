@@ -5,13 +5,23 @@
         </div>
         <div class="images-row">
             <mat-grid-list cols="2" rowHeight="1:1" *ngFor="let image of data.images; let i=index">
-                <img src={{image}} alt="" class="dialog-image-row" (click)="selectImage(i)">
+                <img src={{image}} alt="" class="dialog-image-row" (click)="selectImage(i)" (mouseenter)="selectImage(i)">
             </mat-grid-list>
         </div>
     </div>
     <div class="dialog-product-container">
         <h1 mat-dialog-title>{{data.name}}</h1>
-        <h1 mat-dialog-content>{{data.price}}</h1>
-        <p>{{data.details}}</p>
+        <h1 mat-dialog-content>
+            <div class="dialog-price">
+                {{data.price}}
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="dialog-details">
+                {{data.details}}
+            </div>
+        </h1>
+
     </div>
 </div>

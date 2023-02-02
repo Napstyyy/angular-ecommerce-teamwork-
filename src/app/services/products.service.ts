@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { AnyMxRecord } from 'dns';
 
 //URL to my API on the back-end
-export const productsURL: string = "http://192.168.39.176:8000/products";
+// export const productsURL: string = "http://192.168.39.176:8000/products";
+export const productsURL: string = "http://10.253.14.47:8000/products";
 // export const productsURL:string = "http://localhost:8000/products"
 
 
@@ -27,26 +28,19 @@ export class Product {
 export class ProductsService {
   constructor(private http: HttpClient) { }
 
-  //This function needs to get called by each component that needs access to the data and store it on their own variables
+  //This functions needs to get called by each component that needs access to the data and store it on their own variables
+
+  //Get an array of all the products in database
   getProducts = () => {
     return this.http.get<Product[]>(productsURL);
   }
 
+  //Get an object of all the images sorted by id
   getImages = () => {
     return this.http.get<[]>(productsURL + '/image');
   }
 
-  // priceText:string = price:number => {
-  //   price = String(price);
-  //   let string = '$';
-  //   for (let i = 0; i < price.length; i++) {
-  //     string += price[i];
-  //     if ((price.length - i -1) % 3 === 0 && i !== price.length - 1) {
-  //       string += '.';
-  //     }
-  //   }
-  //   return string;
-  // }
+  
 
   priceText = (price: number) => {
     let priceString:string = String(price);
