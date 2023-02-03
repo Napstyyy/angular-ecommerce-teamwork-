@@ -41,4 +41,8 @@ export class RegisterComponent {
       //this.userService.setAdmin(data.isAdmin) set the type of users
     })
   }
+  login(){
+    this.router.navigate(['/login'])
+  }
+
 }

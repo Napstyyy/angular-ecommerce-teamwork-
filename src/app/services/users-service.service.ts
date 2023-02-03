@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-//export const productsURL: string = "http://25.17.205.213:8000/products";
+
+// export const productsURL: string = "http://25.17.205.213:8000/products";
 //export const productsURL: string = "http://192.168.39.176:8000/products";
 export const productsURL: string = "http://10.253.14.47:8000/products";
 // export const productsURL:string = "http://localhost:8000/products"
@@ -24,7 +25,8 @@ export class UsersServiceService {
 
   constructor(private http: HttpClient) { }
   
-  isAdmin:boolean;
+  isAdmin:boolean = false;
+  auth: boolean = false;
 
   getUser = (username:string, password:string) => {
     return this.http.post<string | User>(productsURL + '/login', {username:username, password:password})
@@ -36,6 +38,10 @@ export class UsersServiceService {
 
   updateAdmin = (body: User) => {
     return this.http.put<string>(productsURL + '/admin', body)
+  }
+
+  setAuth(){
+    this.auth = !this.auth
   }
 
   setAdmin(admin:boolean){
