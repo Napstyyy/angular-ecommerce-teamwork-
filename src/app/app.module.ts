@@ -20,6 +20,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { LoginComponentComponent } from './login/login-component/login-component.component';
 import { RegisterComponent } from './login/register/register.component';
+import { PaymentModule } from './payment/stripe-payment/payment.module';
 
 //Routes
 const routes: Routes = [
@@ -48,7 +49,9 @@ const routes: Routes = [
     LoginModule,
     ShopModule,
     ShopCardsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
+    PaymentModule
 
   ],
   providers: [],
