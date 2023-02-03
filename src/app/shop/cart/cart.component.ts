@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 import { boughtObj, Product, ProductsService } from 'src/app/services/products.service';
 
 export interface ProductBought {
@@ -17,7 +18,8 @@ export interface ProductBought {
 
 export class CartComponent implements OnInit {
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private productsService: ProductsService,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.productsService.getImages().subscribe((data) => this.images = data);
@@ -76,8 +78,9 @@ export class CartComponent implements OnInit {
   }
 
   showProducts() {
-    console.log(this.dataSource);
-    this.productsService.setTotalCost(this.getTotalCost());
+    this.productsService.totalCost = this.getTotalCost();
+    console.log(this.productsService.totalCost);
+    this.router.navigate(['/payment']);
   }
 
   getImage(id:number):string{
