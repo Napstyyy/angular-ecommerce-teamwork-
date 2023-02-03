@@ -9,6 +9,9 @@
         <button *ngIf="!userService.auth" mat-raised-button class="example-icon-login" [routerLink]="['../register']">
             Sign In
         </button>
+        <button *ngIf="userService.auth" class="example-icon-profile" >
+            <img src="../../assets/perfil.png" style="height: 60px; width: 60px; background-color: transparent;" alt="perfil">
+        </button>
         <button *ngIf="userService.auth" mat-raised-button class="example-icon-login" (click)="logout()">
             Logout
         </button>

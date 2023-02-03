@@ -29,6 +29,7 @@ export class LoginComponentComponent implements OnInit {
     this.userService.getUser(username, password).subscribe((data)=> {
       if (typeof data == 'object'){
         this.userService.setAuth()
+        this.userService.setAdmin(data.isAdmin)
         this.router.navigate(['/shop']);
       }
     })

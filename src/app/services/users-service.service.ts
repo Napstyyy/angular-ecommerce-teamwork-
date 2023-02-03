@@ -24,7 +24,7 @@ export class UsersServiceService {
 
   constructor(private http: HttpClient) { }
   
-  isAdmin:boolean;
+  isAdmin:boolean = false;
   auth: boolean = false;
 
   getUser = (username:string, password:string) => {

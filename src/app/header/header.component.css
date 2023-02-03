@@ -5,8 +5,15 @@
 
 .header-right{
     align-items: center;
+    display: flex;
+    flex-direction: row;
 }
 .example-icon-login,
-.example-icon-cart{
+.example-icon-cart,
+.example-icon-profile{
     margin: 15px;
+}
+
+.example-icon-profile{
+    display: flex;
 }
