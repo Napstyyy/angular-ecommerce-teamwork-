@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 import { boughtObj, Product, ProductsService } from 'src/app/services/products.service';
 
 export interface ProductBought {
@@ -17,20 +18,22 @@ export interface ProductBought {
 
 export class CartComponent implements OnInit {
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private productsService: ProductsService,
+    private router: Router) {}
 
   ngOnInit(): void {
+    this.productsService.getImages().subscribe((data) => this.images = data);
     this.productsService.getProducts()
       .subscribe((data) => this.updateCart(data));
   }
-
+  
   updateCart(data: Product[]) {
     this.products = data
     const newData:ProductBought[] = [];
     Object.keys(this.productsService.boughtObj).forEach(id => {
       newData.push({
         id: Number(id),
-        image: "por ahora",
+        image: "",
         name: this.products[Number(id)-1].name,
         quantity: this.productsService.boughtObj[Number(id)],
         price: this.products[Number(id)-1].price
@@ -40,20 +43,28 @@ export class CartComponent implements OnInit {
   }
 
   products: Product[] = [];
+  images: [] = [];
 
   displayedColumns: string[] = ['image', 'name', 'quantity', 'price', 'actions'];
   dataSource: ProductBought[] = [];
 
 
-  book(index: number): void {
-    console.log(index);
-    this.productsService.addItem(index);
-    this.updateCart(this.products);
+  addItem(index: number): void {
+    this.productsService.bookItem(index, 'book').subscribe((message) => {
+      message === 'Stockout' ? alert('Item out of stock') : void(0);
+      if (message === 'Booked'){
+        this.productsService.addItem(index);
+        this.updateCart(this.products);
+      }
+    });
   }
   
-  unbook(index: number): void {    
-    this.productsService.deleteItem(index);
-    this.updateCart(this.products);
+  deleteItem(index: number): void {    
+    this.productsService.bookItem(index, 'unbook').subscribe((message) => {
+      if (message !== 'Unbooked') return;
+      this.productsService.deleteItem(index);
+      this.updateCart(this.products);
+    })
   }
 
   getTotalCost(): number {
@@ -62,12 +73,18 @@ export class CartComponent implements OnInit {
     return cost;
   }
 
-  checkout(): void {
-
+  getPriceText(): string{
+    return this.productsService.priceText(this.getTotalCost());
   }
 
   showProducts() {
-    console.log(this.dataSource);
+    this.productsService.totalCost = this.getTotalCost();
+    console.log(this.productsService.totalCost);
+    this.router.navigate(['/payment']);
+  }
+
+  getImage(id:number):string{
+    return this.images[id][0];
   }
 
 }

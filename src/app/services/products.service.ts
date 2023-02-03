@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 //URL to my API on the back-end
 
+
 // export const productsURL: string = "http://25.17.205.213:8000/products";
 //export const productsURL: string = "http://192.168.39.176:8000/products";
 export const productsURL: string = "http://10.253.14.47:8000/products";
@@ -34,19 +35,29 @@ export interface boughtObj{
 export class ProductsService {
   constructor(private http: HttpClient) { }
 
+  //Store the total cost for the payment module
+  totalCost = 0;
+
+  setTotalCost(value:number){
+    this.totalCost = value;
+  }
+
   //Object that stores the id and quantity of items bought by the user, addItem and deleteItem are the methods to update this object
   boughtObj:boughtObj = {};
 
   addItem = (id:number) => {
-    if (this.boughtObj.hasOwnProperty(id)) this.boughtObj[id]++;
-    else this.boughtObj[id] = 1;
-    console.log(this.boughtObj);
+    this.boughtObj.hasOwnProperty(id) ? this.boughtObj[id]++ : this.boughtObj[id] = 1;
   } 
   
   deleteItem = (id:number) => {
     this.boughtObj[id]--;
-    console.log(this.boughtObj);
-  }  
+    this.boughtObj[id] == 0 ? delete this.boughtObj[id] : void(0);
+  } 
+
+  //Book items in server array
+  bookItem = (id:number, action:string) => {
+    return this.http.get<string>(productsURL + `/book/${id}?f=${action}`);
+  }
 
   //This functions needs to get called by each component that needs access to the data and store it on their own variables
   //Get an array of all the products in database

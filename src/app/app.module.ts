@@ -22,6 +22,7 @@ import { LoginComponentComponent } from './login/login-component/login-component
 import { RegisterComponent } from './login/register/register.component';
 import { UpdateAdminComponent } from './login/update-admin/update-admin.component';
 import { UpdateProductComponent } from './login/update-product/update-product.component';
+import { PaymentModule } from './payment/stripe-payment/payment.module';
 
 //Routes
 const routes: Routes = [
@@ -52,7 +53,9 @@ const routes: Routes = [
     LoginModule,
     ShopModule,
     ShopCardsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
+    PaymentModule
 
   ],
   providers: [],
