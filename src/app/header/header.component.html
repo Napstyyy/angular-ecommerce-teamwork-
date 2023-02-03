@@ -3,7 +3,16 @@
         <img src="../../assets/logo.png" alt="logo" class="header-logo">
     </button>
     <div class="header-right">
-        <button mat-icon-button class="example-icon" [routerLink]="['../cart']">
+        <button *ngIf="!userService.auth" mat-raised-button class="example-icon-login" [routerLink]="['../login']">
+            Login
+        </button>
+        <button *ngIf="!userService.auth" mat-raised-button class="example-icon-login" [routerLink]="['../register']">
+            Sign In
+        </button>
+        <button *ngIf="userService.auth" mat-raised-button class="example-icon-login" (click)="logout()">
+            Logout
+        </button>
+        <button *ngIf="userService.auth" mat-icon-button class="example-icon-cart" [routerLink]="['../cart']">
             <mat-icon>shopping_cart</mat-icon>
         </button>
     </div>

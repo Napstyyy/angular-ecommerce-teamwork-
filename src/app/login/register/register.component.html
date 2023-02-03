@@ -1,5 +1,5 @@
 <div class="login-container">
-    <img src="../../../assets/user.png" alt="UserImg" class="login-image">
+    <img src="../../../assets/register.png" alt="UserImg" class="login-image">
     <form class="login-form" [formGroup]="form" (ngSubmit)="submit()">
         <mat-form-field appearance="fill">
             <mat-label>Username</mat-label>
@@ -18,12 +18,12 @@
             <input type="text" matInput autocomplete="off" formControlName="address">
         </mat-form-field>
         <mat-form-field appearance="fill">
-            <mat-label>phone</mat-label>
+            <mat-label>Phone</mat-label>
             <input type="text" matInput autocomplete="off" formControlName="phone">
         </mat-form-field>
         <div class="button-container">
-            <button type="submit" class="login-button"  mat-raised-button [disabled]="form.invalid" color="primary">Login</button>
-            <p class="create-text">Create an account</p>
+            <button type="submit" class="login-button"  mat-raised-button [disabled]="form.invalid" color="primary">Sign In</button>
+            <button (click)="login()" class="create-text">Already have an account?</button>        
         </div>
     </form>
 </div>

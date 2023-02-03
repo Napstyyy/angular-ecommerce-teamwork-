@@ -3,6 +3,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductsService } from 'src/app/services/products.service';
 import {Router} from "@angular/router";
+import { UsersServiceService } from 'src/app/services/users-service.service';
 
 interface DialogData {
   id: number;
@@ -22,7 +23,8 @@ export class ProductDialogComponent {
     public dialogRef: MatDialogRef<ProductDialogComponent>, 
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private productsService:ProductsService,
-    private router: Router
+    private router: Router,
+    public userService: UsersServiceService
   ) {}
 
   selectedImage:number = 0;
@@ -32,9 +34,15 @@ export class ProductDialogComponent {
   }
 
   buy():void{
-    this.productsService.addItem(this.data.id)
-    this.router.navigate(['/cart']);
+    if(this.userService.auth){
+      this.productsService.addItem(this.data.id)
+      this.router.navigate(['/cart']);
+      this.dialogRef.close();
+      return void(0)
+    }
+    this.router.navigate(['/login']);
     this.dialogRef.close();
+    return void(0)
   }
 
   onNoClick():void {
