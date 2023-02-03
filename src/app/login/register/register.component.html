@@ -1,0 +1,29 @@
+<div class="login-container">
+    <img src="../../../assets/user.png" alt="UserImg" class="login-image">
+    <form class="login-form" [formGroup]="form" (ngSubmit)="submit()">
+        <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="username">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput autocomplete="off" formControlName="password">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="email">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Address</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="address">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>phone</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="phone">
+        </mat-form-field>
+        <div class="button-container">
+            <button type="submit" class="login-button"  mat-raised-button [disabled]="form.invalid" color="primary">Login</button>
+            <p class="create-text">Create an account</p>
+        </div>
+    </form>
+</div>
