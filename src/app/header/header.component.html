@@ -1,0 +1,10 @@
+<mat-toolbar color="primary" style="position: fixed; z-index: 2; height: 80px; display: flex; align-items: center; justify-content: space-between;">
+    <button mat-icon-button class="example-icon" style="height: 70px; width: 70px;" [routerLink]="['../shop']">
+        <img src="../../assets/logo.png" alt="logo" class="header-logo">
+    </button>
+    <div class="header-right">
+        <button mat-icon-button class="example-icon" [routerLink]="['../cart']">
+            <mat-icon>shopping_cart</mat-icon>
+        </button>
+    </div>
+</mat-toolbar>

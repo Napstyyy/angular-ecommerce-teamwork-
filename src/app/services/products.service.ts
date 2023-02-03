@@ -3,23 +3,28 @@ import { Injectable } from '@angular/core';
 import { AnyMxRecord } from 'dns';
 
 //URL to my API on the back-end
-// export const productsURL: string = "http://192.168.39.176:8000/products";
-export const productsURL: string = "http://10.253.14.47:8000/products";
+export const productsURL: string = "http://192.168.39.176:8000/products";
+// export const productsURL: string = "http://10.253.14.47:8000/products";
 // export const productsURL:string = "http://localhost:8000/products"
 
 
-//Definition for the product class used across all modules and components
-export class Product {
-  id: number = 0;
-  details: string = '';
-  name: string = '';
-  quantity: number = 0
-  price: number = 0
-  stockMin: string = '';
-  stockMax: string = '';
-  stockCurrent: string = '';
-  createdAt: string = '';
-  updatedAt: string = '';
+//Definition for the product interface used across all modules and components
+export interface Product {
+  id: number;
+  details: string;
+  name: string;
+  quantity: number;
+  price: number;
+  stockMin: string;
+  stockMax: string;
+  stockCurrent: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+//Interface used for the cart object, meant to store as attributes the keys of the bought items and as values their respective quantities
+export interface boughtObj{
+  [key: number] : number;
 }
 
 @Injectable({
@@ -28,8 +33,18 @@ export class Product {
 export class ProductsService {
   constructor(private http: HttpClient) { }
 
-  //This functions needs to get called by each component that needs access to the data and store it on their own variables
+  //Object that stores the id and quantity of items bought by the user, addItem and deleteItem are the methods to update this object
+  boughtObj:boughtObj = {};
 
+  addItem = (id:number) => {
+    this.boughtObj[id]++;
+  } 
+
+  deleteItem = (id:number) => {
+    this.boughtObj[id]--;
+  }  
+
+  //This functions needs to get called by each component that needs access to the data and store it on their own variables
   //Get an array of all the products in database
   getProducts = () => {
     return this.http.get<Product[]>(productsURL);
@@ -40,7 +55,6 @@ export class ProductsService {
     return this.http.get<[]>(productsURL + '/image');
   }
 
-  
 
   priceText = (price: number) => {
     let priceString:string = String(price);
