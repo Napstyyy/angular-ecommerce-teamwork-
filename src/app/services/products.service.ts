@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AnyMxRecord } from 'dns';
+import { Observable } from 'rxjs';
 
 //URL to my API on the back-end
 export const productsURL: string = "http://192.168.39.176:8000/products";
@@ -37,11 +38,14 @@ export class ProductsService {
   boughtObj:boughtObj = {};
 
   addItem = (id:number) => {
-    this.boughtObj[id]++;
+    if (this.boughtObj.hasOwnProperty(id)) this.boughtObj[id]++;
+    else this.boughtObj[id] = 1;
+    console.log(this.boughtObj);
   } 
-
+  
   deleteItem = (id:number) => {
     this.boughtObj[id]--;
+    console.log(this.boughtObj);
   }  
 
   //This functions needs to get called by each component that needs access to the data and store it on their own variables
@@ -55,7 +59,7 @@ export class ProductsService {
     return this.http.get<[]>(productsURL + '/image');
   }
 
-
+  //Format a text to display prices: E.g: $123.000.000
   priceText = (price: number) => {
     let priceString:string = String(price);
     let string: string = '$';
@@ -67,4 +71,5 @@ export class ProductsService {
     }
     return string;
   }
+
 }

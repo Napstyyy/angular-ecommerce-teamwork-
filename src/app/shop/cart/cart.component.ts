@@ -1,21 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Product, ProductsService } from 'src/app/services/products.service';
+import { boughtObj, Product, ProductsService } from 'src/app/services/products.service';
 
 export interface ProductBought {
+  id:number;
   image: string;
   name: string;
   quantity: number;
   price: number;
 }
-
-const TEST_PRODUCTS: ProductBought[] = [
-  { image: "Prueba1", name: 'Producto1', quantity: 20, price: 80 },
-  { image: "Prueba2", name: 'Producto2', quantity: 30, price: 80 },
-  { image: "Prueba3", name: 'Producto3', quantity: 40, price: 80 },
-  { image: "Prueba4", name: 'Producto4', quantity: 50, price: 80 },
-  { image: "Prueba5", name: 'Producto5', quantity: 60, price: 80 },
-  { image: "Prueba6", name: 'Producto6', quantity: 60, price: 80 }
-]
 
 @Component({
   selector: 'app-cart',
@@ -25,30 +17,48 @@ const TEST_PRODUCTS: ProductBought[] = [
 
 export class CartComponent implements OnInit {
 
-  constructor(private productsService:ProductsService){}
+  constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
     this.productsService.getProducts()
-    .subscribe((data) => this.products = data);
+      .subscribe((data) => this.updateCart(data));
+  }
+
+  updateCart(data: Product[]) {
+    this.products = data
+    const newData:ProductBought[] = [];
+    Object.keys(this.productsService.boughtObj).forEach(id => {
+      newData.push({
+        id: Number(id),
+        image: "por ahora",
+        name: this.products[Number(id)-1].name,
+        quantity: this.productsService.boughtObj[Number(id)],
+        price: this.products[Number(id)-1].price
+      })
+    })
+    this.dataSource = newData;
   }
 
   products: Product[] = [];
 
   displayedColumns: string[] = ['image', 'name', 'quantity', 'price', 'actions'];
-  dataSource = TEST_PRODUCTS;
+  dataSource: ProductBought[] = [];
+
 
   book(index: number): void {
-    this.dataSource[index].quantity++;
+    console.log(index);
+    this.productsService.addItem(index);
+    this.updateCart(this.products);
+  }
+  
+  unbook(index: number): void {    
+    this.productsService.deleteItem(index);
+    this.updateCart(this.products);
   }
 
-  unbook(index: number): void {
-    this.dataSource[index].quantity--;
-    this.dataSource
-  }
-
-  getTotalCost():number {
+  getTotalCost(): number {
     let cost = 0;
-    this.dataSource.forEach(product => cost+=product.quantity*product.price)
+    this.dataSource.forEach(product => cost += product.quantity * product.price)
     return cost;
   }
 
@@ -56,7 +66,8 @@ export class CartComponent implements OnInit {
 
   }
 
-  showProducts(){
-    console.log(this.products)
+  showProducts() {
+    console.log(this.dataSource);
   }
+
 }

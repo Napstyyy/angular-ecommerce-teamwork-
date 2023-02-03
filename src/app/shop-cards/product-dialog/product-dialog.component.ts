@@ -1,8 +1,11 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ProductsService } from 'src/app/services/products.service';
+import {Router} from "@angular/router";
 
 interface DialogData {
+  id: number;
   name: string;
   details: string;
   price: string;
@@ -17,13 +20,21 @@ interface DialogData {
 export class ProductDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<ProductDialogComponent>, 
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private productsService:ProductsService,
+    private router: Router
   ) {}
 
   selectedImage:number = 0;
 
   selectImage(index:number):void {
     this.selectedImage = index;
+  }
+
+  buy():void{
+    this.productsService.addItem(this.data.id)
+    this.router.navigate(['/cart']);
+    this.dialogRef.close();
   }
 
   onNoClick():void {
