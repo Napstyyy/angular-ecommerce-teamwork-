@@ -31,10 +31,19 @@ export class ProductDialogComponent {
     this.selectedImage = index;
   }
 
+  addItem(): void {
+    this.productsService.bookItem(this.data.id, 'book').subscribe((message) => {
+      message === 'Stockout' ? alert('Item out of stock') : void(0);
+      if (message === 'Booked'){
+        this.productsService.addItem(this.data.id);
+        this.router.navigate(['/cart']);
+        this.dialogRef.close();
+      }
+    });
+  }
+
   buy():void{
     this.productsService.addItem(this.data.id)
-    this.router.navigate(['/cart']);
-    this.dialogRef.close();
   }
 
   onNoClick():void {

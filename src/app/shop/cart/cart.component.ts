@@ -47,14 +47,22 @@ export class CartComponent implements OnInit {
   dataSource: ProductBought[] = [];
 
 
-  book(index: number): void {
-    this.productsService.addItem(index);
-    this.updateCart(this.products);
+  addItem(index: number): void {
+    this.productsService.bookItem(index, 'book').subscribe((message) => {
+      message === 'Stockout' ? alert('Item out of stock') : void(0);
+      if (message === 'Booked'){
+        this.productsService.addItem(index);
+        this.updateCart(this.products);
+      }
+    });
   }
   
-  unbook(index: number): void {    
-    this.productsService.deleteItem(index);
-    this.updateCart(this.products);
+  deleteItem(index: number): void {    
+    this.productsService.bookItem(index, 'unbook').subscribe((message) => {
+      if (message !== 'Unbooked') return;
+      this.productsService.deleteItem(index);
+      this.updateCart(this.products);
+    })
   }
 
   getTotalCost(): number {
