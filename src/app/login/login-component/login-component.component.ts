@@ -28,8 +28,14 @@ export class LoginComponentComponent implements OnInit {
     const password = this.form.value.password;
     this.userService.getUser(username, password).subscribe((data)=> {
       if (typeof data == 'object'){
+        this.userService.setAuth()
+        this.userService.setAdmin(data.isAdmin)
         this.router.navigate(['/shop']);
       }
     })
+  }
+
+  register():void{
+    this.router.navigate(['/register'])
   }
 }

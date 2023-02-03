@@ -39,6 +39,9 @@
     margin-top: 10px;
     color: #673ab7;
     text-decoration: underline;
+    border: none;
+    background-color: transparent;
+
 }
 
 .create-text:hover{
