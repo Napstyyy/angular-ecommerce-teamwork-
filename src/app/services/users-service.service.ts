@@ -23,6 +23,8 @@ export interface User{
 export class UsersServiceService {
 
   constructor(private http: HttpClient) { }
+  
+  isAdmin:boolean;
 
   getUser = (username:string, password:string) => {
     return this.http.post<string | User>(productsURL + '/login', {username:username, password:password})
@@ -36,4 +38,11 @@ export class UsersServiceService {
     return this.http.put<string>(productsURL + '/admin', body)
   }
 
+  setAdmin(admin:boolean){
+    if(admin){
+      this.isAdmin = true
+    }else{
+      this.isAdmin = false
+    }
+  }
 }

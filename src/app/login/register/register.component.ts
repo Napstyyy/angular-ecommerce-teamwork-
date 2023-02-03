@@ -38,6 +38,7 @@ export class RegisterComponent {
       if (typeof data == 'object'){
         this.router.navigate(['/shop']);
       }
+      //this.userService.setAdmin(data.isAdmin) set the type of users
     })
   }
 }
