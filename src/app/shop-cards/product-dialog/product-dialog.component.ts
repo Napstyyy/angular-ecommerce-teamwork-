@@ -45,6 +45,17 @@ export class ProductDialogComponent implements OnInit {
     this.selectedImage = index;
   }
 
+  addItem(): void {
+    this.productsService.bookItem(this.data.id, 'book').subscribe((message) => {
+      message === 'Stockout' ? alert('Item out of stock') : void(0);
+      if (message === 'Booked'){
+        this.productsService.addItem(this.data.id);
+        this.router.navigate(['/cart']);
+        this.dialogRef.close();
+      }
+    });
+  }
+
   buy():void{
     if(this.userService.auth){
       this.productsService.addItem(this.data.id)
