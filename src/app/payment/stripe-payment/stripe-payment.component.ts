@@ -1,5 +1,6 @@
 import { Token } from '@angular/compiler';
 import { AfterViewInit, Component, ElementRef, ViewChild, NgZone } from '@angular/core';
+import { ProductsService } from 'src/app/services/products.service';
 import { StripeService } from 'src/app/services/stripe.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class StripePaymentComponent implements AfterViewInit{
   card: any;
 
   constructor(private ngZone: NgZone,
-    private stripService: StripeService
+    private stripService: StripeService,
+    private productsService: ProductsService
     ){ }
 
   ngAfterViewInit() {
@@ -35,7 +37,8 @@ export class StripePaymentComponent implements AfterViewInit{
   async onClick() {
     const { token, error } = await stripe.createToken(this.card);
     if (token) {
-      this.stripService.charge(10001,token.id, "macarena grasuda").subscribe(() => console.log('pago exitoso'));
+      console.log(this.productsService.totalCost);
+      this.stripService.charge(this.productsService.totalCost,token.id, "macarena grasuda").subscribe(() => console.log('Succesful payment'));
     } else {
       this.ngZone.run(() => this.cardError = error.message);
     }

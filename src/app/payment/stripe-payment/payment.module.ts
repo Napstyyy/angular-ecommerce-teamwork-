@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StripePaymentComponent } from './stripe-payment.component';
 import { StripePaymentRoutingModule } from './stripe-payment-routing.module';
+import { ShopModule } from 'src/app/shop/shop.module';
 
 
 
@@ -11,7 +12,8 @@ import { StripePaymentRoutingModule } from './stripe-payment-routing.module';
   ],
   imports: [
     CommonModule,
-    StripePaymentRoutingModule
+    StripePaymentRoutingModule,
+    ShopModule
   ]
 })
 export class PaymentModule { }
