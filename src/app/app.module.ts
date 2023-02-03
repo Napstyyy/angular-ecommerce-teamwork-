@@ -20,6 +20,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { LoginComponentComponent } from './login/login-component/login-component.component';
 import { RegisterComponent } from './login/register/register.component';
+import { UpdateAdminComponent } from './login/update-admin/update-admin.component';
+import { UpdateProductComponent } from './login/update-product/update-product.component';
 import { PaymentModule } from './payment/stripe-payment/payment.module';
 
 //Routes
@@ -28,6 +30,8 @@ const routes: Routes = [
   {path: 'cart', component: CartComponent},
   {path: 'login', component: LoginComponentComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'updateAdmin', component:UpdateAdminComponent},
+  {path: 'updateProduct/:id', component:UpdateProductComponent},
   {path: '', redirectTo: '/shop', pathMatch: 'full'}
 ];
 

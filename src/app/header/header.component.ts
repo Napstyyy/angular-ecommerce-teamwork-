@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   }
   logout(){
     this.userService.setAuth()
+    this.userService.setAdmin(false)
     this.router.navigate(['/shop'])
   }
 

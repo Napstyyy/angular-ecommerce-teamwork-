@@ -57,6 +57,12 @@ export class ProductDialogComponent implements OnInit {
   }
 
   buy():void{
+    if(this.userService.isAdmin){
+      this.dialogRef.close();
+      this.router.navigate([`/updateProduct/${this.data.id}`]);
+      return void(0)
+    }
+
     if(this.userService.auth){
       this.productsService.addItem(this.data.id)
       this.router.navigate(['/cart']);
