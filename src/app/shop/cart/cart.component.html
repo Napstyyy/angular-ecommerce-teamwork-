@@ -3,6 +3,7 @@
     <div class="table-container">
 
         <!-- Table thas uses the datasource defined in cart.component.ts -->
+        
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
             <!-- Image column -->
@@ -32,10 +33,10 @@
             <!-- Buttons to add or remove items from the cart -->
             <ng-container matColumnDef="actions">
                 <th mat-header-cell *matHeaderCellDef></th>
-                <td mat-cell *matCellDef="let product; let i=index">
+                <td mat-cell *matCellDef="let product">
                     <div class="button-container">
-                        <button mat-raised-button color="primary" class="button-table" (click)="book(i)">+</button>
-                        <button mat-raised-button color="warn" class="button-table" (click)="unbook(i)">-</button>
+                        <button mat-raised-button color="primary" class="button-table" (click)="book(product.id)">+</button>
+                        <button mat-raised-button color="warn" class="button-table" (click)="unbook(product.id)">-</button>
                     </div>
                 </td>
             </ng-container>
@@ -44,7 +45,6 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-        <mat-divider></mat-divider>
 
         <div class="mat-elevation-28 total-container">
             <div class="total">

@@ -9,7 +9,6 @@ import { Product, ProductsService } from 'src/app/services/products.service';
 export class CardsContainerComponent implements OnInit{
 
   constructor(private productsService:ProductsService){}
-
   
   ngOnInit(){
     this.productsService.getProducts().subscribe((data) => this.products = data);
