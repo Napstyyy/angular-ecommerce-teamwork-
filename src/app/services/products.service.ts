@@ -37,6 +37,13 @@ export interface boughtObj{
 export class ProductsService {
   constructor(private http: HttpClient) { }
 
+  //Store the total cost for the payment module
+  totalCost = 0;
+
+  setTotalCost(value:number){
+    this.totalCost = value;
+  }
+
   //Object that stores the id and quantity of items bought by the user, addItem and deleteItem are the methods to update this object
   boughtObj:boughtObj = {};
 

@@ -71,8 +71,13 @@ export class CartComponent implements OnInit {
     return cost;
   }
 
+  getPriceText(): string{
+    return this.productsService.priceText(this.getTotalCost());
+  }
+
   showProducts() {
     console.log(this.dataSource);
+    this.productsService.setTotalCost(this.getTotalCost());
   }
 
   getImage(id:number):string{
