@@ -9,7 +9,7 @@
             <!-- Image column -->
             <ng-container matColumnDef="image">
                 <th mat-header-cell *matHeaderCellDef></th>
-                <td mat-cell *matCellDef="let product"> {{product.image}} </td>
+                <td mat-cell *matCellDef="let product"> <img src="{{getImage(product.id)}}" alt="product image"> </td>
             </ng-container>
 
             <!-- Product name column -->
