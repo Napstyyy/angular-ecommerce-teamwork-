@@ -5,12 +5,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import { RegisterComponent } from './register/register.component';
 
 //Materials
 
 @NgModule({
   declarations: [
-    LoginComponentComponent
+    LoginComponentComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,

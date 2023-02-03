@@ -18,11 +18,15 @@ import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { LoginComponentComponent } from './login/login-component/login-component.component';
+import { RegisterComponent } from './login/register/register.component';
 
 //Routes
 const routes: Routes = [
   {path: 'shop', component: CardsContainerComponent},
   {path: 'cart', component: CartComponent},
+  {path: 'login', component: LoginComponentComponent},
+  {path: 'register', component: RegisterComponent},
   {path: '', redirectTo: '/shop', pathMatch: 'full'}
 ];
 
