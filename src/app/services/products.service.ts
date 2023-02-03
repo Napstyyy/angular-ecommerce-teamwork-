@@ -14,16 +14,14 @@ export const productsURL: string = "http://10.253.14.47:8000/products";
 //Definition for the product interface used across all modules and components
 export interface Product {
   id: number;
-  details: string;
   name: string;
-  quantity: number;
+  details: string;
   price: number;
-  stockMin: string;
-  stockMax: string;
-  stockCurrent: string;
-  createdAt: string;
-  updatedAt: string;
+  stockMin: number;
+  stockMax: number;
+  stockCurrent: number;
 }
+
 
 //Interface used for the cart object, meant to store as attributes the keys of the bought items and as values their respective quantities
 export interface boughtObj{
@@ -61,6 +59,9 @@ export class ProductsService {
     return this.http.get<[]>(productsURL + '/image');
   }
 
+  updateProduct = (body:Product) =>{
+    return this.http.put<string>(productsURL + `/${body.id}`, body)
+  }
   //Format a text to display prices: E.g: $123.000.000
   priceText = (price: number) => {
     let priceString:string = String(price);

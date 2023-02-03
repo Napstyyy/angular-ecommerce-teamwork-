@@ -6,13 +6,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { RegisterComponent } from './register/register.component';
+import { UpdateAdminComponent } from './update-admin/update-admin.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 //Materials
 
 @NgModule({
   declarations: [
     LoginComponentComponent,
-    RegisterComponent
+    RegisterComponent,
+    UpdateAdminComponent,
+    UpdateProductComponent
   ],
   imports: [
     CommonModule,

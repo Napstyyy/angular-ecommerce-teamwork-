@@ -1,0 +1,31 @@
+<div class="login-container">
+    <form class="login-form" [formGroup]="form" (ngSubmit)="update()">
+        <mat-form-field appearance="fill">
+            <mat-label>Product Name</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Product Details</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="details">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Price</mat-label>
+            <input type="number" matInput autocomplete="off" formControlName="price">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Current Stock</mat-label>
+            <input type="number" matInput autocomplete="off" formControlName="stockCurrent">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Minimum Stock</mat-label>
+            <input type="number" matInput autocomplete="off" formControlName="stockMin">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Maximum Stock</mat-label>
+            <input type="number" matInput autocomplete="off" formControlName="stockMax">
+        </mat-form-field>
+        <div class="button-container">
+            <button type="submit" class="login-button"  mat-raised-button [disabled]="form.invalid" color="primary">Update</button>       
+        </div>
+    </form>
+</div>
