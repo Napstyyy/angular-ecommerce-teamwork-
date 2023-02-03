@@ -11,7 +11,7 @@
         </mat-form-field>
         <div class="button-container">
             <button type="submit" class="login-button"  mat-raised-button [disabled]="form.invalid" color="primary">Login</button>
-            <p class="create-text">Create an account</p>
+            <button (click)="register()" class="create-text">Create an account</button>
         </div>
     </form>
 </div>
