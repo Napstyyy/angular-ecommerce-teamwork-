@@ -75,6 +75,11 @@ export class ProductsService {
   updateProduct = (body:Product) =>{
     return this.http.put<string>(productsURL + `/${body.id}`, body)
   }
+
+  buyProductAux = () => {
+    return this.http.post<string>(productsURL + '/buyAux', this.boughtObj)
+  }
+  
   //Format a text to display prices: E.g: $123.000.000
   priceText = (price: number) => {
     let priceString:string = String(price);
