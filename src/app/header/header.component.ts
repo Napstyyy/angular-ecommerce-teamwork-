@@ -1,22 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
-import { UsersServiceService } from '../services/users-service.service';//se importa para poder usar valores dentro
+import { Component, OnInit } from '@angular/core';//Definiciones del componente
+import { Router } from '@angular/router';//Modulo de router para redireccionar
+import { UsersServiceService } from '../services/users-service.service';//Importacion del servicio de usuarios
 
+//Componente de header, este está presente constantemente, por lo que solo se renderiza una vez
+//No depende de las rutas del modulo principal
+//Permite la navegación entre modulos y se encarga de gestionar el flujo de la aplicación segun el tipo de usuario
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']//se vincula a su respectivo css 
 })
+
 export class HeaderComponent implements OnInit {
-  constructor(public userService:UsersServiceService, private router:Router){//se llama a userService para poder usar los usurios que se logean 
+  //Importar en la clase el modulo de rutas y el servicio de usuarios
+  constructor(public userService:UsersServiceService, private router:Router){}
 
+  //Variable para validar si ya se inició sesión
+  auth:boolean;
+
+  //Al iniciar el componente, asignar la variable auth a el valor que se encuentre en el servicio
+  ngOnInit(): void {
+    this.auth = this.userService.auth;
   }
 
-  auth:boolean; //es una variable de tipo boolean que permite saber si hay una persona registrada y poder cambiar el header
-
-  ngOnInit(): void {//permite entregarle a auth un valor inicial que sera de falso
-    this.auth = this.userService.auth//al llamar a userService.auth se le asigna el valor false
-  }
+  //Cerrar sesion
   logout(){
     this.userService.setAuth()//al tratar de desloguarse se le entrega lo contrario a lo que esta dentro de la variable 
     this.userService.setAdmin(false)//se le quita el valor de admin en caso de que fuera un usuario admin
