@@ -1,22 +1,22 @@
-<mat-toolbar color="primary" style="position: fixed; z-index: 2; height: 80px; display: flex; align-items: center; justify-content: space-between;">
-    <button mat-icon-button class="example-icon" style="height: 70px; width: 70px;" [routerLink]="['../shop']">
-        <img src="../../assets/logo.png" alt="logo" class="header-logo">
+<mat-toolbar color="primary" style="position: fixed; z-index: 2; height: 80px; display: flex; align-items: center; justify-content: space-between;"> <!--se usa una toolbar de material y se le da estilo desde aqui-->
+    <button mat-icon-button class="example-icon" style="height: 70px; width: 70px;" [routerLink]="['../shop']"> <!--se importa un boton de angular que se usara para poder redirigir a la pagina principal del shop-->
+        <img src="../../assets/logo.png" alt="logo" class="header-logo"><!--imagen del logo que se encuetra a la izquierda del header-->
     </button>
-    <div class="header-right">
-        <button *ngIf="!userService.auth" mat-raised-button class="example-icon-login" [routerLink]="['../login']">
+    <div class="header-right"><!--div que contiene los botones que varian en funcion de si se esta logeado o no-->
+        <button *ngIf="!userService.auth" mat-raised-button class="example-icon-login" [routerLink]="['../login']"><!--boton que aparece solo si no se ha se a logeado y redirige a la pagina del login-->
             Login
-        </button>
-        <button *ngIf="!userService.auth" mat-raised-button class="example-icon-login" [routerLink]="['../register']">
+        </button><!--fin del boton para el login-->
+        <button *ngIf="!userService.auth" mat-raised-button class="example-icon-login" [routerLink]="['../register']"><!--boton que aparece solo si no se ha se a logeado y redirige a la pagina del register-->
             Sign Up
-        </button>
-        <button *ngIf="userService.auth&&userService.isAdmin" class="example-icon-profile" [routerLink]="['../updateAdmin']">
-            <img src="../../assets/perfil.png" style="height: 60px; width: 60px; background-color: transparent;" alt="perfil">
-        </button>
-        <button *ngIf="userService.auth" mat-raised-button class="example-icon-login" (click)="logout()">
+        </button><!--fin del boton para el register-->
+        <button *ngIf="userService.auth&&userService.isAdmin" class="example-icon-profile" [routerLink]="['../updateAdmin']"><!--boton que permite mostrar la imagen para el admin y que rediricciona a la pagina para actualizar el admin-->
+            <img src="../../assets/perfil.png" style="height: 60px; width: 60px; background-color: transparent;" alt="perfil"><!--imagen que se inserta dentro del boton-->
+        </button><!--fin boton para el admin-->
+        <button *ngIf="userService.auth" mat-raised-button class="example-icon-login" (click)="logout()"><!--boton que aparece si ya se logeo y permite al darle click desloguearse con la funcion logout-->
             Logout
-        </button>
-        <button *ngIf="userService.auth&&!userService.isAdmin" mat-icon-button class="example-icon-cart" [routerLink]="['../cart']">
-            <mat-icon>shopping_cart</mat-icon>
-        </button>
+        </button><!--fin para el boton que permite el logout-->
+        <button *ngIf="userService.auth&&!userService.isAdmin" mat-icon-button class="example-icon-cart" [routerLink]="['../cart']"><!--boton que muestra el carrito siempre y cuando el admin no este logedo y que un usuario este logeado-->
+            <mat-icon>shopping_cart</mat-icon><!--icono que es importado de icons material-->
+        </button><!--fin del boton para el carrito-->
     </div>
 </mat-toolbar>
