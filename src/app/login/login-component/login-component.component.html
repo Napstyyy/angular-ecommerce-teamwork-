@@ -1,16 +1,24 @@
 <div class="login-container">
+    <!-- imagen estetica -->
     <img src="../../../assets/user.png" alt="UserImg" class="login-image">
+    <!-- el form para los inputs -->
     <form class="login-form" [formGroup]="form" (ngSubmit)="submit()">
+        <!-- input text de material -->
         <mat-form-field appearance="fill">
             <mat-label>Username</mat-label>
             <input type="text" matInput autocomplete="off" formControlName="username">
         </mat-form-field>
+        <!-- input password de material -->
         <mat-form-field appearance="fill">
             <mat-label>Password</mat-label>
             <input type="password" matInput autocomplete="off" formControlName="password">
         </mat-form-field>
         <div class="button-container">
-            <button type="submit" class="login-button"  mat-raised-button [disabled]="form.invalid" color="primary">Login</button>
+            <!-- boton de material -->
+            <button type="submit" class="login-button"  mat-raised-button [disabled]="form.invalid" color="primary">
+                Login
+            </button>
+            <!-- boton de material -->
             <button (click)="register()" class="create-text">Create an account</button>
         </div>
     </form>
