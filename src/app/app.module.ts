@@ -40,9 +40,10 @@ const routes: Routes = [
     AppComponent,
     HeaderComponent,
   ],
+  // Importaciones de absolutamente todos los modulos del aplicativo
   imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes),
+    BrowserModule,//Modulo del browser standarizado por angular
+    RouterModule.forRoot(routes),//El modulo de las rutas
     HttpClientModule,
     AppRoutingModule,
 
@@ -50,16 +51,15 @@ const routes: Routes = [
     MatIconModule,
     MatButtonModule,
 
-    LoginModule,
-    ShopModule,
-    ShopCardsModule,
+    LoginModule,//El modulo del login con sus respectivos componentes
+    ShopModule,//El modulo del shop con sus respectivos componentes
+    ShopCardsModule,//El modulo de las cartas de la tienda con sus respectivos componentes
     BrowserAnimationsModule,
-
-    PaymentModule
+    PaymentModule//El modulo del portal de pagos con sus respectivos componentes
 
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 
-export class AppModule {}
+export class AppModule {} //Exportando el modulo de toda la app hacia el index.html que se vera reflejado como label app-root
