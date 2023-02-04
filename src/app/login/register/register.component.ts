@@ -35,7 +35,8 @@ export class RegisterComponent {
     const phone:number = this.form.value.phone;
     this.response = {username: username, password: password, email:email, address:address,phone:phone , isAdmin:false}
     this.userService.createUser(this.response).subscribe((data)=> {
-      if (typeof data == 'object'){
+      if (typeof data != 'object'){
+        this.userService.setAuth();
         this.router.navigate(['/shop']);
       }
       //this.userService.setAdmin(data.isAdmin) set the type of users
