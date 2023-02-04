@@ -1,9 +1,15 @@
-.credit-card{ /*propiedades de el contenedor credir-card*/
-    width: 400px; /*definimos el ancho de 400px*/
-    height: 50px; /*definimos el alto de 50px*/
-    border: 1px solid black; /*le damos un borde con grosor de 1px*/
-    padding: 20px; /*definimos un padding por todos los lados de 20px*/
-    display: flex; /*definimos el contenedor como flexible*/
-    flex-direction: column; /*definimos la direccion de el contenido en columna*/
-    justify-content: space-evenly; /*alineamos el contenido en partes iguales horizontalmente*/
+.credit-card-container{ /*contenedor del formulario de pago, este lo centra en la pagina*/
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+.credit-card{/*esta es la tarjeta del formulario de pago y se le da propiedades de tamaño y de posicion*/
+    width: 400px;
+    height: 100px;
+    border: 1px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
