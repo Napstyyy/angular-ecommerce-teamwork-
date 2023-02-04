@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 
 //export const productsURL: string = "http://25.17.205.213:8000/products";
 //export const productsURL: string = "http://192.168.39.176:8000/products";
-export const productsURL: string = "http://192.168.1.14:8000/products";
+//export const productsURL: string = "http://192.168.1.14:8000/products";
+export const productsURL: string = "https://eshop-ynv8.onrender.com/products";
+
 // export const productsURL:string = "http://localhost:8000/products"
 
 @Injectable({
