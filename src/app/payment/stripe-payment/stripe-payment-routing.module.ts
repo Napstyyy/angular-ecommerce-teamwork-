@@ -5,7 +5,7 @@ import { StripePaymentComponent } from './stripe-payment.component';// Importand
 // Se define el objeto routes de tipo Routes para ser usado en el modulo de rutas
 const routes: Routes = [
   {
-    path:"payment", component:StripePaymentComponent
+    path:"payment", component:StripePaymentComponent//se agrega el path para el componente de pago que sera '/payment'
   }
 ]
 // Cuerpo del modulo rutas

@@ -94,6 +94,7 @@ export class ProductsService {
   updateProduct = (body:Product) =>{//inicio funcion updateProduct
     return this.http.put<string>(productsURL + `/${body.id}`, body)//devolvera un observador el cual te dara una notificacion si se cambio el producto
   }//fin funcion updateProduct
+  
   //Format a text to display prices: E.g: $123.000.000
   /**
    * number -> string
