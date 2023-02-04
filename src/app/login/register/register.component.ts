@@ -35,9 +35,12 @@ export class RegisterComponent {
     const phone:number = this.form.value.phone;
     this.response = {username: username, password: password, email:email, address:address,phone:phone , isAdmin:false}
     this.userService.createUser(this.response).subscribe((data)=> {
+      console.log(data)
       if (typeof data != 'object'){
         this.userService.setAuth();
         this.router.navigate(['/shop']);
+      }else{
+        alert('Usuario no valido')
       }
       //this.userService.setAdmin(data.isAdmin) set the type of users
     })
