@@ -1,9 +1,12 @@
-<div class="credit-card">
-    <div>
-        <div #cardInfo></div>
-        <div class="error" *ngIf="cardError">
-            {{ cardError }}
+<div class="credit-card-container"><!--este div sirve para poder darle la posicion del formulario del pago-->
+    <div class="credit-card"><!--es el contenedor del campo para el formulario del pago-->
+        <div>
+            <div #cardInfo></div>
+            <div class="error" *ngIf="cardError"><!--en caso de que se encuentre un error se llama a la variable que contiene el error-->
+                {{ cardError }}<!--se muestra el error con respecto a la tarjeta-->
+            </div>
         </div>
+        <button (click)="onClick()">Pay</button><!--es el boton que al darle click se llama a la funcion 'onClick'-->
     </div>
-    <button (click)="onClick()">Pay</button>
 </div>
+
