@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core'; //importacion de component y oninit
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'; //importacion de modulos de angular para validar datos en el login
+import { Router } from '@angular/router'; //importamos para usar las rutas
 import { UsersServiceService } from 'src/app/services/users-service.service';
 
 @Component({
@@ -8,22 +8,19 @@ import { UsersServiceService } from 'src/app/services/users-service.service';
   templateUrl: './login-component.component.html',
   styleUrls: ['./login-component.component.css']
 })
-export class LoginComponentComponent implements OnInit {
-  form: FormGroup;
+export class LoginComponentComponent {
+  form: FormGroup; //definimos un nuevo tipo de dato FormGroup
 
-  constructor(private fb:FormBuilder, private userService: UsersServiceService, private router:Router){
-    this.form = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+  //funcion que se ejecuta al instanciar un objeto
+  constructor(private fb:FormBuilder, private userService: UsersServiceService, private router:Router){ 
+    this.form = this.fb.group({ //hacemos las validaciones del formulario
+      username: ['', Validators.required], //validaciones para el input de usuario
+      password: ['', Validators.required] //validaciones para el input de password
     })
   }
-  response:string | object = ''
+  response:string | object = '' //definimos una valiable de tipo string o objeto
 
-  ngOnInit(): void {
-    
-  }
-
-  submit():void {
+  submit():void { //funcion utilizada para 
     const username = this.form.value.username;
     const password = this.form.value.password;
     this.userService.getUser(username, password).subscribe((data)=> {

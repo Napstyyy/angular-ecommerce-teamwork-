@@ -1,45 +1,45 @@
-.dialog-container{
-    display: flex;
-    position: absolute;
-    flex-direction: row;
-    justify-self: center;
-    height: 100%;
+.dialog-container{ /*propiedades para el contenedor dialog-container*/
+    display: flex; /*contenedor flexible*/
+    position: absolute; /*posicion absoluta para que este fijo*/
+    flex-direction: row; /*direccion del contenido en filas*/
+    justify-self: center; /*centrar el contenido horizontalmente*/
+    height: 100%; /*alto del 100%*/
 }
 
-.image-container{
-    width: 80%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.image-container{ /*propiedades para el contenedor image-container*/
+    width: 80%; /*ancho del 80%*/
+    display: flex; /*contenedor flexible */
+    flex-direction: row; /*alineacion de contenido en filas*/
+    align-items: center; /*alineamos en el centro verticalmente*/
 }
 
-.dialog-big-image-container{
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.dialog-big-image-container{ /*propiedades para el contenedor dialog-big-image-container*/
+    width: 100%; /*ancho del 100%*/
+    max-width: 400px; /*maximo del ancho en 400px*/
+    display: flex; /*contenedor flexible*/
+    align-items: center; /*alinear en el centro verticalmente*/
+    justify-content: center; /*alinear en el centro horizontalmente*/
 }
 
-.dialog-big-image{
-    max-width: 400px;
-    max-height: 400px;
+.dialog-big-image{ /*propiedades del contenedor dialog-big-image*/
+    max-width: 400px; /*maximo ancho de 400px*/
+    max-height: 400px; /*maximo alto de 400px */
 }
 
-.images-row{
-    display: flex;
-    flex-direction: column;
-    width: 10%;
-    justify-content: space-around;
+.images-row{ /*propiedades para el contenedor images-row*/
+    display: flex; /*contenedor flexible*/
+    flex-direction: column; /*direccion del contenido en columna*/
+    width: 10%; /*ancho del 10%*/
+    justify-content: space-around; /*alinea con respecto al contenido horizontalmente */
 }
 
-.dialog-image-row{
-    max-height: 100%;
-    max-width: 100%;
+.dialog-image-row{ /*propiedades para dialog-image-row*/
+    max-height: 100%;  /*maximo alto del 100%*/
+    max-width: 100%; /*maximo ancho del 100%*/
 }
 
-.dialog-product-container{
-    width: 50%;
-    display: flex;
-    flex-flow: column wrap;
+.dialog-product-container{ /*propiedades para dialog-product-container*/
+    width: 50%; /*ancho del 50%*/
+    display: flex; /*contenedor flexible*/
+    flex-flow: column wrap; /*direccion del contenido en columna*/
 }

@@ -1,55 +1,55 @@
-.cart-container{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.cart-container{ /*propiedades para el contenedor cart-container*/
+    width: 100%; /*ancho del 100% del contenedor*/
+    height: 100%; /*alto del 100% del contenedor*/
+    display: flex; /*contenedor flexible*/
+    justify-content: center; /*alineamos en el centro horizontalmente*/
+    align-items: center; /*alineamos en el centro verticalmente*/
 }
 
-.table-container{
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.table-container{ /*propiedades del contenededor table-container*/
+    width: 80%; /*ancho del 80% del contenedor*/
+    display: flex; /*contenedor flexible*/
+    flex-direction: column; /*alineamos en direccion de una columna*/
+    justify-content: center; /*alineaos en el centro horizontalmente*/
 }
 
 
-.mat-column-actions{
-    width: 10%;
+.mat-column-actions{ /*propiedades de el mat-colum-actions*/
+    width: 10%; /*ancho del 10%*/
 }
 
-.button-table {
-    width: 40px!important;
-    min-width: unset!important;
-    border-radius: 20px;
-    text-align: center;
+.button-table { /*propiedades de el button-table*/
+    width: 40px!important; /*ancho de 40px*/
+    min-width: unset!important; /*minimo de ancho en el minimo inicial*/
+    border-radius: 20px; /*redondeamos los bordes*/
+    text-align: center; /*alineamos el texto en el centro*/
 }
 
-.button-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
+.button-container{ /*contenedor de el boton*/
+    display: flex; /*contenedor flexible*/
+    flex-direction: row; /*alineamos en filas*/
+    justify-content: space-around; /*alinemos en el espacio disponible horizontalmente*/
+    width: 100%; /*ancho de el 100%*/
 }
 
-.total-container{
-    margin-bottom: 20px;
-    width: 90%;
-    height: 50px;
-    display: flex;
-    flex-direction: row;
-    background-color: #fff;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 5%;
-    padding-right: 5%;
-    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+.total-container{ /*propiedades para el contenedor total-container*/
+    margin-bottom: 20px; /*margen inferior de 20px*/
+    width: 90%; /*ancho del 90%*/
+    height: 50px; /*alto de 50px*/
+    display: flex; /*contenedor fle xible*/
+    flex-direction: row; /*direccion de el contenido en filas*/
+    background-color: #fff; /*color blanco del fondo*/
+    justify-content: space-between; /*alineamos en el espacio disponible horizontalmente*/
+    align-items: center; /*alineamos en el centro verticalmente*/
+    padding-left: 5%; /*padding izquierdo del 5%*/
+    padding-right: 5%; /*padding derecho del 5%*/
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12); /*sombra que tendra el contenedor*/
 }
 
-.total{
-    width: 30%;
-    font-weight: bold;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.total{ /*propiedades para el contenedor total*/
+    width: 30%; /*ancho del 30%*/
+    font-weight: bold; /*fuente de tipo negrita*/
+    display: flex; /*contenedor flexible*/
+    flex-direction: row; /*alineacion en filas*/
+    justify-content: space-between; /*alinear todo con el espacion disponible horizontalmente*/
 }
