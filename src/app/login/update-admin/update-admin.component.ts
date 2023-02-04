@@ -11,9 +11,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class UpdateAdminComponent implements OnInit{
   form: FormGroup;
 
-  constructor(private fb:FormBuilder, private userService: UsersServiceService, private router:Router){
+  //constructor que obtiene los servicios de FormBuilder, para el manejo de formularios
+  //el servicio de usuarios y e servicio de router
+  constructor(private fb:FormBuilder, private userService: UsersServiceService, private router:Router){ 
+    //a form se le asignan los diferentes valores que se obtienen en el formulario
     this.form = this.fb.group({
-      username: ['', Validators.required],
+      username: ['', Validators.required], 
       password: ['', Validators.required],
       email: ['', Validators.required],
       address: ['', Validators.required],
@@ -23,14 +26,14 @@ export class UpdateAdminComponent implements OnInit{
   ngOnInit(): void {
   }
   
-  response:User;
+  response:User; //objeto que va a ser enviado con todos los datos del administrador
 
   update():void {
-    const username:string = this.form.value.username;
-    const password:string = this.form.value.password;
-    const email:string = this.form.value.email;
-    const address:string = this.form.value.address;
-    const phone:number = this.form.value.phone;
+    const username:string = this.form.value.username; //se crea la constante username que guarda el valor del input usuario
+    const password:string = this.form.value.password; //se crea la constante password que guarda el valor del input password
+    const email:string = this.form.value.email; //se crea la constante email que guarda el valor del input email
+    const address:string = this.form.value.address; //se crea la constante address que guarda el valor del input address
+    const phone:number = this.form.value.phone; //se crea la constante phone que guarda el valor del input phone
     this.response = {username: username, password: password, email:email, address:address,phone:phone , isAdmin:true}
     this.userService.updateAdmin(this.response).subscribe((data)=> {
       if (typeof data !== 'object'){

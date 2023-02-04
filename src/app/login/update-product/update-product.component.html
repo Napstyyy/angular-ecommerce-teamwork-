@@ -1,31 +1,31 @@
-<div class="login-container">
+<div class="login-container"> <!--Contenedor de todo el formulario para cambiar los datos del producto--> 
     <form class="login-form" [formGroup]="form" (ngSubmit)="update()">
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill"> 
             <mat-label>Product Name</mat-label>
-            <input type="text" matInput autocomplete="off" formControlName="name">
+            <input type="text" matInput autocomplete="off" formControlName="name"> <!--Input que guarda el dato del nombre del producto-->
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Product Details</mat-label>
-            <input type="text" matInput autocomplete="off" formControlName="details">
+            <input type="text" matInput autocomplete="off" formControlName="details"> <!--Input que guarda el dato de la descripcion del usuario-->
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Price</mat-label>
-            <input type="number" matInput autocomplete="off" formControlName="price">
+            <input type="number" matInput autocomplete="off" formControlName="price"> <!--Input que guarda el dato del precio-->
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Current Stock</mat-label>
-            <input type="number" matInput autocomplete="off" formControlName="stockCurrent">
+            <input type="number" matInput autocomplete="off" formControlName="stockCurrent"> <!--Input que guarda el dato del stock actual-->
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Minimum Stock</mat-label>
-            <input type="number" matInput autocomplete="off" formControlName="stockMin">
+            <input type="number" matInput autocomplete="off" formControlName="stockMin"> <!--Input que guarda el dato del stock minimo-->
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Maximum Stock</mat-label>
-            <input type="number" matInput autocomplete="off" formControlName="stockMax">
+            <input type="number" matInput autocomplete="off" formControlName="stockMax"> <!--Input que guarda el dato del stock maximo-->
         </mat-form-field>
         <div class="button-container">
-            <button type="submit" class="login-button"  mat-raised-button [disabled]="form.invalid" color="primary">Update</button>       
+            <button type="submit" class="login-button"  mat-raised-button [disabled]="form.invalid" color="primary">Update</button> <!--Boton que ejecuta la funcion de actualizar los datos del producto-->      
         </div>
     </form>
 </div>
