@@ -1,10 +1,10 @@
-<mat-card class="example-card" (click)="openDialog()">
+<mat-card class="example-card" (click)="openDialog()"> <!-- contenedor que al dar click abre el dialog con el contenido del producto-->
   <div class="image-container">
-    <img mat-card-image src={{images[0]}} alt="Product image">
+    <img mat-card-image src={{images[0]}} alt="Product image"> <!-- IMAGEN DEL PRODUCTO -->
   </div>
   <mat-card-content class="description-card">
-    <mat-card-title>{{getPriceText()}}</mat-card-title>
-    <mat-card-title>{{product.name}}</mat-card-title>
+    <mat-card-title>{{getPriceText()}}</mat-card-title> <!--PRECIO DEL PRODUCTO-->
+    <mat-card-title>{{product.name}}</mat-card-title> <!--NOMBRE DEL PRODUCTO-->
   </mat-card-content>
 
 </mat-card>

@@ -1,26 +1,26 @@
-<div class="dialog-container">
-    <div class="image-container">
-        <div class="dialog-big-image-container">
-            <img src={{data.images[selectedImage]}} class="dialog-big-image">
+<div class="dialog-container"> <!-- contenedor general -->
+    <div class="image-container"> <!-- contenedor de imagenes -->
+        <div class="dialog-big-image-container"> <!-- contenedor imagen 1-->
+            <img src={{data.images[selectedImage]}} class="dialog-big-image"> <!-- imagen 1-->
         </div>
-        <div class="images-row">
+        <div class="images-row"> <!--contenedor imagen 2 -->
             <mat-grid-list cols="2" rowHeight="1:1" *ngFor="let image of data.images; let i=index">
-                <img src={{image}} alt="product image" class="dialog-image-row" (click)="selectImage(i)" (mouseenter)="selectImage(i)">
+                <img src={{image}} alt="product image" class="dialog-image-row" (click)="selectImage(i)" (mouseenter)="selectImage(i)"> <!-- imagen2 -->
             </mat-grid-list>
         </div>
     </div>
-    <div class="dialog-product-container">
-        <h1 mat-dialog-title>{{data.name}}</h1>
-        <h1 mat-dialog-content>
+    <div class="dialog-product-container"> <!-- contenedor del texto de informacion-->
+        <h1 mat-dialog-title>{{data.name}}</h1> <!-- NOMBRE DEL PRODUCTO -->
+        <h1 mat-dialog-content> 
             <div class="dialog-price">
-                {{data.price}}
+                {{data.price}} <!-- PRECIO DEL PRODUCTO-->
             </div>
             <br><br><br>
             <div class="dialog-details">
-                {{data.details}}
+                {{data.details}} <!-- DESCRIPCION DEL PRODUCTO -->
             </div>
             <br><br>
-            <button mat-raised-button color="primary" (click)="buy()">{{actionAdmin}}</button>
+            <button mat-raised-button color="primary" (click)="buy()">{{actionAdmin}}</button> <!-- Boton para el pago -->
         </h1>
 
     </div>

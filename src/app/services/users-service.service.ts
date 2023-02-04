@@ -16,7 +16,7 @@ export interface User{//inicio de la interface User
 @Injectable({//le decimos que es un servicio
   providedIn: 'root'//el lugar donde se va inyextar el codigo
 })//fin del Injectable
-export class UsersServiceService {//inicio de la clase UsersServiceService, es el primer servicio que se creo el cual se encargara de todo lo relacionado con oos usuarios y el usuario que se logio en la pagina actual 
+export class UsersServiceService {//inicio de la clase UsersServiceService, es el primer servicio que se creo el cual se encargara de todo lo relacionado con los usuarios y el usuario que se logio en la pagina actual 
 
   constructor(private http: HttpClient) { }//pedimos el el objeto a http
   

@@ -44,5 +44,4 @@ export class UpdateAdminComponent implements OnInit{//inicio de la clase UpdateA
       }//fin del if
     })//fin del servece
   }//fin de la funcion update
-
 }//fin del componente

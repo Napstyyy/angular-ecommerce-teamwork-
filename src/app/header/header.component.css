@@ -1,19 +1,20 @@
-.header-logo{
-    width: 50px;
-    height: 50px;
+
+.header-logo{ /*propiedades para el contenedor que tendra el logo en el header*/
+    width: 50px; /*definimos las medidas de el logo en 50px de ancho*/
+    height: 50px; /*definimos las medidas de el logo en 50px de alto*/
 }
 
-.header-right{
-    align-items: center;
-    display: flex;
-    flex-direction: row;
+.header-right{ /*propiedades de el contenedor header-rigth*/
+    align-items: center; /*alineamos el contenido en el centro verticalmente*/
+    display: flex; /*definimos el contenedor de tipo flexible*/
+    flex-direction: row; /*definimos la direccion de el contenido en filas*/
 }
-.example-icon-login,
+.example-icon-login, /*propiedades para los iconos de carrito, la palbra de login y el perfil*/
 .example-icon-cart,
 .example-icon-profile{
-    margin: 15px;
+    margin: 15px; /*le damos un margen en todos sus lados de 15px*/
 }
 
-.example-icon-profile{
-    display: flex;
+.example-icon-profile{ /*propiedades para la imagen de perfil ubicada en el header*/
+    display: flex; /*definimos la imagen como flexible*/
 }
