@@ -31,6 +31,8 @@ export class LoginComponentComponent implements OnInit {
         this.userService.setAuth()
         this.userService.setAdmin(data.isAdmin)
         this.router.navigate(['/shop']);
+      }else{
+        alert('Usuario no valido')
       }
     })
   }

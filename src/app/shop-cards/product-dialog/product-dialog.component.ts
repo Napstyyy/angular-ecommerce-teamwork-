@@ -46,14 +46,7 @@ export class ProductDialogComponent implements OnInit {
   }
 
   addItem(): void {
-    this.productsService.bookItem(this.data.id, 'book').subscribe((message) => {
-      message === 'Stockout' ? alert('Item out of stock') : void(0);
-      if (message === 'Booked'){
-        this.productsService.addItem(this.data.id);
-        this.router.navigate(['/cart']);
-        this.dialogRef.close();
-      }
-    });
+    
   }
 
   buy():void{
@@ -64,10 +57,15 @@ export class ProductDialogComponent implements OnInit {
     }
 
     if(this.userService.auth){
-      this.productsService.addItem(this.data.id)
-      this.router.navigate(['/cart']);
-      this.dialogRef.close();
-      return void(0)
+      this.productsService.bookItem(this.data.id, 'book').subscribe((message) => {
+        message === 'Stockout' ? alert('Item out of stock') : void(0);
+        if (message === 'Booked'){
+          this.productsService.addItem(this.data.id);
+          this.router.navigate(['/cart']);
+          this.dialogRef.close();
+        }
+      });
+      return void(0);
     }
     this.router.navigate(['/login']);
     this.dialogRef.close();

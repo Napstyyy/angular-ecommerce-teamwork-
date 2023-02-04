@@ -1,4 +1,6 @@
-import { AfterViewInit, Component, ElementRef, ViewChild, NgZone } from '@angular/core'; 
+import { Token } from '@angular/compiler';
+import { AfterViewInit, Component, ElementRef, ViewChild, NgZone } from '@angular/core';
+import {Router} from "@angular/router";
 import { ProductsService } from 'src/app/services/products.service';
 import { StripeService } from 'src/app/services/stripe.service'; //se importan los servicios de stripe para poder generar los intentos de pago a stripe
 
@@ -13,9 +15,10 @@ export class StripePaymentComponent implements AfterViewInit{
   cardError: string; //aqui se almacena el error de la tarjeta en caso de que se encuentre un error con respecto a la tarjeta
   card: any;
 
-  constructor(private ngZone: NgZone,//NgZone es la implementación utilizada en angular para la ejecución de tareas asíncronas.
-    private stripService: StripeService,//se llama a stripeService para poder
-    private productsService: ProductsService//se llama al servicio que contieneel valor acumulado de la compra dentro del carrito
+  constructor(private ngZone: NgZone,
+    private stripService: StripeService,
+    private productsService: ProductsService,
+    private router:Router,
     ){ }
 
   ngAfterViewInit() {
@@ -29,7 +32,6 @@ export class StripePaymentComponent implements AfterViewInit{
       this.ngZone.run(() => this.cardError = error.message);//se le entrega a cardError el error generado por la tarjeta
     } else {
       this.ngZone.run(() => this.cardError = '');//en caso de que no haya ningun error no se le asigna nada
-      
     }
   }
 
@@ -40,6 +42,7 @@ export class StripePaymentComponent implements AfterViewInit{
       console.log(this.productsService.totalCost);//mostramos en la consola el total del costo de la compra
       //aqui se llama al servicio entregandole 3 parametro: el costo total de la compra, el id del token de esa compra y un mensaje 
       this.stripService.charge(this.productsService.totalCost,token.id, "compra realizada").subscribe(() => console.log('Succesful payment'));//una vez hecho se muestra por consola el mensaje 'Succesful payment'
+      this.router.navigate(['/'])
     } else {
       this.ngZone.run(() => this.cardError = error.message);//en caso de que no se de el token se le asigna el mensaje de error a cardError y se muestra el error
     }
