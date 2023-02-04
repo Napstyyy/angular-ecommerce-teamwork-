@@ -1,32 +1,31 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LoginComponentComponent } from './login-component/login-component.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import { RegisterComponent } from './register/register.component';
-import { UpdateAdminComponent } from './update-admin/update-admin.component';
-import { UpdateProductComponent } from './update-product/update-product.component';
+import { NgModule } from '@angular/core';//decorador para los modulos
+import { CommonModule } from '@angular/common';//importacion para los modulos
+import { LoginComponentComponent } from './login-component/login-component.component';//importacion del componente d elogin
+import { ReactiveFormsModule } from '@angular/forms';//importacion de materials
+import { MatFormFieldModule } from '@angular/material/form-field';//importacion de material
+import { MatButtonModule } from '@angular/material/button';//importacion de material
+import {MatInputModule} from '@angular/material/input';//importacioon de material
+import { RegisterComponent } from './register/register.component';//componente del register
+import { UpdateAdminComponent } from './update-admin/update-admin.component';//componente del updateAdmin
+import { UpdateProductComponent } from './update-product/update-product.component';//componente de updateProduct
 
 //Materials
-
 @NgModule({
-  declarations: [
+  declarations: [//inicio de declaraciones
     LoginComponentComponent,
     RegisterComponent,
     UpdateAdminComponent,
     UpdateProductComponent
-  ],
-  imports: [
+  ],//fin de declaraciones
+  imports: [//comienzo importaciones
     CommonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule
-  ],
-  exports: [
+  ],//fin de importaciones
+  exports: [//inicio de la exportaciones
     LoginComponentComponent
-  ]
+  ]//fin de la exportaciones
 })
 export class LoginModule { }

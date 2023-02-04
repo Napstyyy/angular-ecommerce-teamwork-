@@ -1,28 +1,37 @@
 <div class="login-container">
+    <!-- imagen estetica -->
     <img src="../../../assets/register.png" alt="UserImg" class="login-image">
+    <!-- el form para los inputs de material -->
     <form class="login-form" [formGroup]="form" (ngSubmit)="submit()">
+        <!-- input texto de material -->
         <mat-form-field appearance="fill">
             <mat-label>Username</mat-label>
             <input type="text" matInput autocomplete="off" formControlName="username">
         </mat-form-field>
+        <!-- input texto de material -->
         <mat-form-field appearance="fill">
             <mat-label>Password</mat-label>
             <input type="password" matInput autocomplete="off" formControlName="password">
         </mat-form-field>
+        <!-- input text de material -->
         <mat-form-field appearance="fill">
             <mat-label>Email</mat-label>
             <input type="text" matInput autocomplete="off" formControlName="email">
         </mat-form-field>
+        <!-- input text de material -->
         <mat-form-field appearance="fill">
             <mat-label>Address</mat-label>
             <input type="text" matInput autocomplete="off" formControlName="address">
         </mat-form-field>
+        <!-- input text de material -->
         <mat-form-field appearance="fill">
             <mat-label>Phone</mat-label>
             <input type="text" matInput autocomplete="off" formControlName="phone">
         </mat-form-field>
         <div class="button-container">
+            <!-- boton de material -->
             <button type="submit" class="login-button"  mat-raised-button [disabled]="form.invalid" color="primary">Sign Up</button>
+            <!-- boton de material -->
             <button (click)="login()" class="create-text">Already have an account?</button>        
         </div>
     </form>
