@@ -1,50 +1,48 @@
-.login-container{
-    margin-top: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
+.login-container{ /*Propiedades para el contenedor login-container*/
+    margin-top: 10%; /*definimos un margen superior de el 10% con respecto al contenedor que lo contiene*/
+    display: flex; /*definimos el contenedor de tipo flexible*/
+    justify-content: center; /*alineamos horizontalmente el contenido del contenedor en el centro*/
+    align-items: center; /*alineamos verticalmente el contenido del contenedor en el centro*/
+    flex-direction: column; /*alineamos todo el contenido del div en una sola columna*/
+    height: 100%; /*definimos el alto del contenedor como el 100% del contenedor que lo contiene*/
+    width: 100%; /*definimos el ancho del contenedor como el 100% del contenedor que lo contiene*/
 }
 
-
-.login-image{
-    max-width: 250px;
-    width: 50%;
-    text-align: center;
-    margin-bottom: 20px;
+.login-image{ /*Propiedades para el contenedor login-image*/
+    max-width: 250px; /*definimos el ancho maximo del contenedor que sera de 250px*/
+    width: 50%; /*definimos el ancho como el 50% del contenedor que lo contiene*/
+    text-align: center; /*alineamos en el centro el texto que se encuentre dentro del contenedor*/
+    margin-bottom: 20px; /*definimos un margen inferior de 20px*/
 }
 
-.login-form{
+.login-form{ /*Propiedades para el contenedor login-form*/
     /* background-color: #f5f5f5; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 30%;
+    display: flex; /*definimos el contenedor como un contenedor flexible*/
+    flex-direction: column; /*alineamos el contenido del contenedor en una columna*/
+    justify-content: center; /*alineamos el contenido en el centro de forma horizontal*/
+    width: 30%; /*definimos el ancho del contenedor como el 30% del contenedor que lo contiene*/
 }
 
-.button-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.button-container{ /*propiedades de el contenedor button-container*/
+    display: flex; /*definimos el contenedor como flexible*/
+    align-items: center; /*alineamos el contenido en el centro verticalmente*/
+    justify-content: center; /*alineamos el contenido en el centro horizontalmente*/
+    flex-direction: column; /*alineamos el contenido en una sola columna*/
 }
 
-.login-button{
-    width: 210px;
+.login-button{ /*propiedades para el boton de login*/
+    width: 210px; /*definimos el ancho de 210px*/
 }
 
-.create-text{
-    margin-top: 10px;
-    color: #673ab7;
-    text-decoration: underline;
-    border: none;
-    background-color: transparent;
-
+.create-text{ /*propiedades para el contenedor de create-text*/
+    margin-top: 10px; /*definimos un margen superior de 10px*/
+    color: #673ab7; /*definimos el color de la fuente*/
+    text-decoration: underline; /*le quitamos las decoraciones a la fuente*/
+    border: none; /*le quitamos el borde a la letra*/
+    background-color: transparent; /*le quitamos el fondo a el contenedor*/
 }
 
-.create-text:hover{
-    color: #222;
-    cursor: pointer;
+.create-text:hover{ /*propiedades de el contenedor al tener el cursor encima*/
+    color: #222; /*definimos el color de la fuente*/
+    cursor: pointer; /*propiedad para que se reconozca el cursor*/
 }

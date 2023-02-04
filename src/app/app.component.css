@@ -1,4 +1,4 @@
-.header-spacer{
-    height: 100px;
-    width: 100%;
+.header-spacer{ /*propiedades para el contenedor header-spacer*/
+    height: 100px; /*alto de 100px*/
+    width: 100%; /*ancho del 100%*/
 }

@@ -1,17 +1,17 @@
-<div class="login-container">
-    <img src="../../../assets/user.png" alt="UserImg" class="login-image">
-    <form class="login-form" [formGroup]="form" (ngSubmit)="submit()">
-        <mat-form-field appearance="fill">
+ <div class="login-container"> <!-- contenedor de todo el login -->
+    <img src="../../../assets/user.png" alt="UserImg" class="login-image"> <!-- IMAGEN -->
+    <form class="login-form" [formGroup]="form" (ngSubmit)="submit()"> <!-- formulario de el login -->
+        <mat-form-field appearance="fill"> 
             <mat-label>Username</mat-label>
-            <input type="text" matInput autocomplete="off" formControlName="username">
+            <input type="text" matInput autocomplete="off" formControlName="username"> <!-- Input del usuario -->
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Password</mat-label>
-            <input type="password" matInput autocomplete="off" formControlName="password">
+            <input type="password" matInput autocomplete="off" formControlName="password"> <!-- Input del password -->
         </mat-form-field>
         <div class="button-container">
-            <button type="submit" class="login-button"  mat-raised-button [disabled]="form.invalid" color="primary">Login</button>
-            <button (click)="register()" class="create-text">Create an account</button>
+            <button type="submit" class="login-button"  mat-raised-button [disabled]="form.invalid" color="primary">Login</button><!-- boton para loguearse -->
+            <button (click)="register()" class="create-text">Create an account</button> <!-- boton para ir al registro -->
         </div>
     </form>
 </div>
