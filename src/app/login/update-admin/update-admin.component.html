@@ -1,28 +1,28 @@
-<div class="login-container">
+<div class="login-container"> <!--Contenedor de todo el formulario para cambiar los datos del usuario administrador--> 
     <img src="../../../assets/register.png" alt="UserImg" class="login-image">
-    <form class="login-form" [formGroup]="form" (ngSubmit)="update()">
-        <mat-form-field appearance="fill">
+    <form class="login-form" [formGroup]="form" (ngSubmit)="update()"> <!--Formulario que tiene los inputs de los datos del usuario admin-->
+        <mat-form-field appearance="fill">  
             <mat-label>Username</mat-label>
-            <input type="text" matInput autocomplete="off" formControlName="username">
+            <input type="text" matInput autocomplete="off" formControlName="username"> <!--Input que guarda el dato del usuario-->
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Password</mat-label>
-            <input type="password" matInput autocomplete="off" formControlName="password">
+            <input type="password" matInput autocomplete="off" formControlName="password"> <!--Input que guarda el dato de la contraseña-->
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Email</mat-label>
-            <input type="text" matInput autocomplete="off" formControlName="email">
+            <input type="text" matInput autocomplete="off" formControlName="email"> <!--Input que guarda el dato del correo-->
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Address</mat-label>
-            <input type="text" matInput autocomplete="off" formControlName="address">
+            <input type="text" matInput autocomplete="off" formControlName="address"> <!--Input que guarda el dato de la direccion-->
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Phone</mat-label>
-            <input type="text" matInput autocomplete="off" formControlName="phone">
+            <input type="text" matInput autocomplete="off" formControlName="phone"> <!--Input que guarda el dato del telefono-->
         </mat-form-field>
         <div class="button-container">
-            <button type="submit" class="login-button"  mat-raised-button [disabled]="form.invalid" color="primary">Update</button>       
+            <button type="submit" class="login-button"  mat-raised-button [disabled]="form.invalid" color="primary">Update</button> <!--Boton tipo submit que corresponde a los inputs previos-->     
         </div>
     </form>
 </div>
