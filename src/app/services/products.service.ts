@@ -70,6 +70,15 @@ export class ProductsService {
   }//fin de bookItem
 
   /**
+   * id, action -> Observable
+   * devuleve un observable el cual confirma que los datos pasados por medio del body fueron actualizados en base de datos
+   * 
+   */
+  buyProductAux = () => {
+    return this.http.post<string>(productsURL + '/buyAux', this.boughtObj)
+  }
+
+  /**
    * void -> Observable
    * esta funcion devuelve un observable el cual, si la coneccion se efectua,
    *  te dara los 10 productos de la base de datos

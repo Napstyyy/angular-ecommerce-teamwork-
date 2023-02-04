@@ -42,6 +42,7 @@ export class StripePaymentComponent implements AfterViewInit{
       console.log(this.productsService.totalCost);//mostramos en la consola el total del costo de la compra
       //aqui se llama al servicio entregandole 3 parametro: el costo total de la compra, el id del token de esa compra y un mensaje 
       this.stripService.charge(this.productsService.totalCost,token.id, "compra realizada").subscribe(() => console.log('Succesful payment'));//una vez hecho se muestra por consola el mensaje 'Succesful payment'
+      this.productsService.buyProductAux().subscribe((data) => console.log(data));
       this.router.navigate(['/'])
     } else {
       this.ngZone.run(() => this.cardError = error.message);//en caso de que no se de el token se le asigna el mensaje de error a cardError y se muestra el error
