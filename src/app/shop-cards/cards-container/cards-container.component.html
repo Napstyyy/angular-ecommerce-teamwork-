@@ -1,5 +1,5 @@
-<div  class="cards-container">
-    <div *ngFor="let card of products;let i=index">
-        <app-product-card [product]="card" [images]="images[card.id]" ></app-product-card>
+<div  class="cards-container"><!-- El contenedor general que contendra todas las cartas -->
+    <div *ngFor="let card of products;let i=index"><!-- el ngfor me permite generar la carta para cada producto dado del arreglo que se encuentra en card container components -->
+        <app-product-card [product]="card" [images]="images[card.id]" ></app-product-card><!-- el ngfor que se encuenta en el div, genera la carta del producto y la imagen gracias al product-card -->
     </div>
 </div>

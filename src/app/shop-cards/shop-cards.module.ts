@@ -34,4 +34,4 @@ import { ProductDialogComponent } from './product-dialog/product-dialog.componen
     CardsContainerComponent
   ]
 })
-export class ShopCardsModule { }
+export class ShopCardsModule { } //exportamos el modulo completo de shop cards
