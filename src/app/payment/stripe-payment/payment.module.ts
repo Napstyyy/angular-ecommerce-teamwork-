@@ -4,7 +4,7 @@ import { StripePaymentComponent } from './stripe-payment.component';//se importa
 import { StripePaymentRoutingModule } from './stripe-payment-routing.module';//se importa el modulo del router 
 import { ShopModule } from 'src/app/shop/shop.module';//se importa el modulo del shop para poder obtener todos los componentes de la aplicacion
 
-
+//
 
 @NgModule({
   declarations: [
